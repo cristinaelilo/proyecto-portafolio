@@ -1,0 +1,128 @@
+<app-hero />
+
+<!-- ESTADÍSTICAS -->
+<section class="mx-auto max-w-6xl px-4 py-8 sm:py-12">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+    <div class="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-center">
+      <h3 class="text-3xl sm:text-4xl font-bold gradient-text">10+</h3>
+      <p class="text-muted mt-1 sm:mt-2 text-sm sm:text-base">Proyectos realizados</p>
+    </div>
+    <div class="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-center">
+      <h3 class="text-3xl sm:text-4xl font-bold gradient-text">5+</h3>
+      <p class="text-muted mt-1 sm:mt-2 text-sm sm:text-base">Tecnologías dominadas</p>
+    </div>
+    <div class="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-center">
+      <h3 class="text-3xl sm:text-4xl font-bold gradient-text">100%</h3>
+      <p class="text-muted mt-1 sm:mt-2 text-sm sm:text-base">Compromiso</p>
+    </div>
+    <div class="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-center">
+      <h3 class="text-3xl sm:text-4xl font-bold gradient-text">24/7</h3>
+      <p class="text-muted mt-1 sm:mt-2 text-sm sm:text-base">Comunicación</p>
+    </div>
+  </div>
+</section>
+
+<!-- EQUIPO -->
+<section class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
+  <header class="text-center mb-10 sm:mb-12">
+    <h2 class="text-3xl sm:text-5xl font-bold">Conoce al equipo</h2>
+    <p class="text-muted mt-3">Dos programadoras, una visión.</p>
+  </header>
+  <div class="grid gap-6 sm:grid-cols-2 max-w-4xl mx-auto items-stretch">
+    @for (p of programmers(); track p.id) {
+      <app-programmer-card [p]="p" />
+    }
+  </div>
+</section>
+
+<!-- TECNOLOGÍAS -->
+<section class="mx-auto max-w-6xl px-4 py-14 sm:py-20">
+  <header class="text-center mb-10 sm:mb-12">
+    <h2 class="text-3xl sm:text-5xl font-bold">Tecnologías</h2>
+    <p class="text-muted mt-3">Herramientas que usamos para construir soluciones modernas.</p>
+  </header>
+  <div class="flex flex-wrap justify-center gap-2 sm:gap-3">
+    <span class="chip">Angular</span>
+    <span class="chip">TypeScript</span>
+    <span class="chip">Firebase</span>
+    <span class="chip">Firestore</span>
+    <span class="chip">Strapi CMS</span>
+    <span class="chip">Node.js</span>
+    <span class="chip">Git</span>
+    <span class="chip">GitHub</span>
+    <span class="chip">Figma</span>
+    <span class="chip">Tailwind CSS</span>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
+  <header class="text-center mb-10 sm:mb-12">
+    <h2 class="text-3xl sm:text-5xl font-bold">Servicios</h2>
+    <p class="text-muted mt-3">Lo que podemos construir para ti.</p>
+  </header>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-stretch">
+    @for (s of services(); track s.id) {
+      <app-service-card [s]="s" />
+    }
+  </div>
+</section>
+
+<!-- CÓMO TRABAJAMOS -->
+<section class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
+  <header class="text-center mb-10 sm:mb-12">
+    <h2 class="text-3xl sm:text-5xl font-bold">Cómo trabajamos</h2>
+  </header>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+    <article class="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-center">
+      <div class="text-4xl sm:text-5xl mb-3 sm:mb-4">&#x31;&#xFE0F;&#x20E3;</div>
+      <h3 class="font-bold text-base sm:text-xl">Idea</h3>
+      <p class="text-muted mt-2 text-sm sm:text-base">Escuchamos tu proyecto.</p>
+    </article>
+    <article class="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-center">
+      <div class="text-4xl sm:text-5xl mb-3 sm:mb-4">&#x32;&#xFE0F;&#x20E3;</div>
+      <h3 class="font-bold text-base sm:text-xl">Diseño</h3>
+      <p class="text-muted mt-2 text-sm sm:text-base">Creamos la propuesta visual.</p>
+    </article>
+    <article class="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-center">
+      <div class="text-4xl sm:text-5xl mb-3 sm:mb-4">&#x33;&#xFE0F;&#x20E3;</div>
+      <h3 class="font-bold text-base sm:text-xl">Desarrollo</h3>
+      <p class="text-muted mt-2 text-sm sm:text-base">Construimos tu solución.</p>
+    </article>
+    <article class="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 text-center">
+      <div class="text-4xl sm:text-5xl mb-3 sm:mb-4">&#x34;&#xFE0F;&#x20E3;</div>
+      <h3 class="font-bold text-base sm:text-xl">Entrega</h3>
+      <p class="text-muted mt-2 text-sm sm:text-base">Publicamos y damos soporte.</p>
+    </article>
+  </div>
+</section>
+
+<!-- PROYECTOS DESTACADOS -->
+<section class="mx-auto max-w-7xl px-4 py-14 sm:py-20">
+  <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-10 sm:mb-12">
+    <div>
+      <h2 class="text-3xl sm:text-5xl font-bold">Proyectos destacados</h2>
+      <p class="text-muted mt-2">Algunas de nuestras creaciones.</p>
+    </div>
+    <a routerLink="/proyectos" class="btn-ghost text-sm whitespace-nowrap">Ver todos →</a>
+  </header>
+  <div class="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    @for (p of projects(); track p.id) {
+      <app-project-card [p]="p" />
+    }
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="mx-auto max-w-5xl px-4 py-14 sm:py-20">
+  <div class="glass rounded-2xl sm:rounded-3xl p-8 sm:p-12 text-center">
+    <h2 class="text-3xl sm:text-5xl font-bold">¿Tienes una idea?</h2>
+    <p class="text-muted mt-4 text-sm sm:text-base">
+      Cuéntanos tu proyecto y te ayudaremos a hacerlo realidad.
+    </p>
+    <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-8">
+      <a routerLink="/solicitud" class="btn-primary w-full sm:w-auto">Solicitar proyecto</a>
+      <a routerLink="/contacto"  class="btn-ghost  w-full sm:w-auto">Contactar</a>
+    </div>
+  </div>
+</section>

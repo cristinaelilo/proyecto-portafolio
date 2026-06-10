@@ -1,0 +1,116 @@
+<header class="fixed top-0 left-0 right-0 z-50">
+  <div class="glass border-b border-black/5">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+
+      <!-- LOGO -->
+      <a routerLink="/" class="flex items-center gap-2 font-bold text-lg shrink-0">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl gradient-bg shadow-lg">
+          <span class="text-white text-sm font-bold">C&D</span>
+        </span>
+        <span class="hidden sm:inline gradient-text font-display">C&D Studio</span>
+      </a>
+
+      <!-- LINKS DESKTOP -->
+      <ul class="hidden lg:flex items-center gap-1 text-sm">
+        @for (link of links; track link.path) {
+          <li>
+            <a
+              [routerLink]="link.path"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: link.exact }"
+              class="px-3 py-2 rounded-full text-muted hover:text-fg transition-colors"
+            >{{ link.label }}</a>
+          </li>
+        }
+      </ul>
+
+      <!-- AUTH DESKTOP -->
+      <div class="hidden lg:flex items-center gap-3">
+
+        @if (isLoading()) {
+          <!-- Skeleton pequeño mientras Firebase verifica la sesión -->
+          <div class="h-8 w-32 rounded-full bg-black/5 animate-pulse"></div>
+
+        } @else if (isLoggedIn()) {
+
+          @if (isProgrammer()) {
+            <span class="text-xs bg-pink-100 text-pink-700 border border-pink-200 px-3 py-1 rounded-full font-semibold">
+              Programadora
+            </span>
+          }
+          <span class="text-sm text-muted max-w-[180px] truncate">{{ userEmail() }}</span>
+          <button (click)="logout()" class="btn-ghost text-sm py-2 px-4">
+            Cerrar sesión
+          </button>
+
+        } @else {
+
+          <a routerLink="/login"    class="btn-ghost    text-sm py-2 px-4">Iniciar sesión</a>
+          <a routerLink="/register" class="btn-primary  text-sm py-2 px-4">Registrarse</a>
+
+        }
+      </div>
+
+      <!-- BURGER -->
+      <button
+        (click)="toggleMenu()"
+        class="lg:hidden flex flex-col justify-center items-center w-10 h-10 gap-[5px] rounded-lg hover:bg-black/5 transition-colors"
+        aria-label="Menú"
+      >
+        <span class="block w-5 h-0.5 bg-current transition-all duration-200"
+              [style.transform]="open ? 'rotate(45deg) translateY(7px)' : ''"></span>
+        <span class="block w-5 h-0.5 bg-current transition-all duration-200"
+              [style.opacity]="open ? '0' : '1'"></span>
+        <span class="block w-5 h-0.5 bg-current transition-all duration-200"
+              [style.transform]="open ? 'rotate(-45deg) translateY(-7px)' : ''"></span>
+      </button>
+
+    </nav>
+
+    <!-- MENÚ MÓVIL -->
+    @if (open) {
+      <div class="lg:hidden border-t border-black/5 bg-white/90 backdrop-blur-xl">
+
+        <div class="px-4 py-3 space-y-1">
+          @for (link of links; track link.path) {
+            <a
+              [routerLink]="link.path"
+              (click)="closeMenu()"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: link.exact }"
+              class="flex items-center px-4 py-3 rounded-xl text-muted hover:text-fg hover:bg-black/5 transition-colors font-medium text-sm"
+            >{{ link.label }}</a>
+          }
+        </div>
+
+        <div class="border-t border-black/5 px-4 py-4 space-y-2">
+
+          @if (isLoading()) {
+            <div class="h-10 rounded-full bg-black/5 animate-pulse"></div>
+
+          } @else if (isLoggedIn()) {
+
+            <div class="px-4 py-2 text-sm text-muted truncate">
+              @if (isProgrammer()) {
+                <span class="text-xs bg-pink-100 text-pink-700 border border-pink-200 px-2 py-0.5 rounded-full font-semibold mr-2">
+                  Programadora
+                </span>
+              }
+              {{ userEmail() }}
+            </div>
+            <button (click)="logout()" class="btn-ghost w-full text-sm">
+              Cerrar sesión
+            </button>
+
+          } @else {
+
+            <a routerLink="/login"    (click)="closeMenu()" class="btn-ghost   w-full text-sm block text-center">Iniciar sesión</a>
+            <a routerLink="/register" (click)="closeMenu()" class="btn-primary w-full text-sm block text-center">Registrarse</a>
+
+          }
+        </div>
+
+      </div>
+    }
+  </div>
+</header>

@@ -1,0 +1,39 @@
+.programadoras-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 16px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: #7a5560;
+  max-width: 600px;
+  margin: auto;
+  font-size: 0.95rem;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr;   /* móvil: 1 columna */
+  gap: 20px;
+}
+
+@media (min-width: 600px) {
+  .header h1 { font-size: 2.5rem; }
+  .cards { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+}
+
+@media (min-width: 768px) {
+  .programadoras-container { padding: 60px 24px; }
+  .header h1 { font-size: 3rem; }
+  .header { margin-bottom: 50px; }
+}

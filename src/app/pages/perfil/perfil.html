@@ -1,0 +1,95 @@
+@if (p(); as prog) {
+
+<section class="perfil-container">
+
+  <a routerLink="/programadoras" class="volver">← Volver</a>
+
+  <div class="perfil-card glass">
+
+    <img
+      [src]="'/' + prog.photo"
+      [alt]="prog.name"
+      class="perfil-img"
+    >
+
+    <div class="perfil-info">
+
+      <h1>{{ prog.name }}</h1>
+      <h3>{{ prog.role }}</h3>
+      <p>{{ prog.bio }}</p>
+
+      <div class="botones">
+        <a [href]="prog.github" target="_blank" rel="noopener" class="btn-primary">
+          GitHub
+        </a>
+        <a [href]="prog.linkedin" target="_blank" rel="noopener" class="btn-ghost">
+          LinkedIn
+        </a>
+      </div>
+
+      <div class="datos-extra">
+        <span>💻 Desarrolladora Web</span>
+        <span>🎓 Universidad Politécnica Salesiana</span>
+        <span>📍 Cuenca - Ecuador</span>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="tecnologias">
+    <h2>Tecnologías</h2>
+    <div class="chips">
+      @for (tech of prog.tech; track tech) {
+        <span class="chip">{{ tech }}</span>
+      }
+    </div>
+  </div>
+
+  <div class="estadisticas">
+    <div class="stat-card glass">
+      <h3>10+</h3>
+      <p>Proyectos académicos</p>
+    </div>
+    <div class="stat-card glass">
+      <h3>6+</h3>
+      <p>Tecnologías utilizadas</p>
+    </div>
+    <div class="stat-card glass">
+      <h3>100%</h3>
+      <p>Compromiso y dedicación</p>
+    </div>
+  </div>
+
+  <div class="sobre-mi glass">
+    <h2>Sobre mí</h2>
+    <p>{{ prog.bio }}</p>
+  </div>
+
+  <div class="proyectos">
+    <h2>Proyectos realizados</h2>
+
+    @if (loading()) {
+      <p class="text-muted text-sm">Cargando proyectos...</p>
+    } @else if (relatedProjects().length === 0) {
+      <p class="text-muted text-sm">No hay proyectos registrados aún.</p>
+    } @else {
+      <div class="grid">
+        @for (project of relatedProjects(); track project.id) {
+          <app-project-card [p]="project" />
+        }
+      </div>
+    }
+
+  </div>
+
+</section>
+
+} @else {
+
+  <div class="not-found">
+    <h2>Programadora no encontrada</h2>
+    <a routerLink="/programadoras" class="volver">← Volver al equipo</a>
+  </div>
+
+}

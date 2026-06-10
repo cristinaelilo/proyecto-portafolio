@@ -1,0 +1,114 @@
+<section class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+
+  <header class="mb-8 sm:mb-10 text-center">
+    <h1 class="text-3xl sm:text-4xl font-bold">
+      Solicitar <span class="gradient-text">proyecto</span>
+    </h1>
+    <p class="text-muted mt-3 text-sm sm:text-base">
+      Cuéntanos tu idea y te contactamos pronto.
+    </p>
+  </header>
+
+  @if (sent()) {
+
+    <div class="glass rounded-2xl sm:rounded-3xl p-10 sm:p-12 text-center">
+      <div class="text-6xl mb-4">✅</div>
+      <h2 class="text-2xl font-bold">¡Solicitud enviada!</h2>
+      <p class="text-muted mt-3 text-sm">Tu solicitud fue guardada. Pronto nos pondremos en contacto.</p>
+      <a routerLink="/mis-solicitudes" class="btn-primary mt-6 inline-block">
+        Ver mis solicitudes
+      </a>
+    </div>
+
+  } @else {
+
+    <form (ngSubmit)="submit()" class="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 space-y-5">
+
+      <!-- NOMBRE -->
+      <div>
+        <label class="text-sm font-medium mb-1.5 block">Nombre *</label>
+        <input
+          [(ngModel)]="name"
+          name="name"
+          required
+          placeholder="Tu nombre completo"
+          class="w-full px-4 py-3 rounded-xl bg-white/50 border border-black/10 outline-none text-sm"
+        />
+      </div>
+
+      <!-- CORREO -->
+      <div>
+        <label class="text-sm font-medium mb-1.5 block">Correo *</label>
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          required
+          placeholder="tu@correo.com"
+          class="w-full px-4 py-3 rounded-xl bg-white/50 border border-black/10 outline-none text-sm"
+        />
+      </div>
+
+      <!-- SERVICIO + PROGRAMADORA en fila en desktop -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+        <div>
+          <label class="text-sm font-medium mb-1.5 block">Tipo de servicio *</label>
+          <select
+            [(ngModel)]="servicio"
+            name="servicio"
+            required
+            class="w-full px-4 py-3 rounded-xl bg-white/50 border border-black/10 outline-none text-sm"
+          >
+            @for (s of services; track s.id) {
+              <option [value]="s.title">{{ s.icon }} {{ s.title }}</option>
+            }
+          </select>
+        </div>
+
+        <div>
+          <label class="text-sm font-medium mb-1.5 block">Programadora *</label>
+          <select
+            [(ngModel)]="programmer"
+            name="programmer"
+            required
+            class="w-full px-4 py-3 rounded-xl bg-white/50 border border-black/10 outline-none text-sm"
+          >
+            @for (p of programmers; track p.id) {
+              <option [value]="p.name">{{ p.name }} — {{ p.role }}</option>
+            }
+          </select>
+        </div>
+
+      </div>
+
+      <!-- IDEA -->
+      <div>
+        <label class="text-sm font-medium mb-1.5 block">Descripción del proyecto *</label>
+        <textarea
+          [(ngModel)]="idea"
+          name="idea"
+          rows="5"
+          required
+          placeholder="Describe tu proyecto o idea con el mayor detalle posible..."
+          class="w-full px-4 py-3 rounded-xl bg-white/50 border border-black/10 outline-none text-sm resize-none"
+        ></textarea>
+      </div>
+
+      @if (error()) {
+        <p class="text-red-500 text-sm text-center">{{ error() }}</p>
+      }
+
+      <button
+        type="submit"
+        class="btn-primary w-full"
+        [disabled]="loading()"
+      >
+        {{ loading() ? 'Enviando...' : 'Enviar solicitud' }}
+      </button>
+
+    </form>
+
+  }
+
+</section>

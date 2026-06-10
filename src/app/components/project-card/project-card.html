@@ -1,0 +1,39 @@
+<article class="project-card glass">
+
+  <div class="project-icon">
+    {{ p().emoji }}
+  </div>
+
+  <div class="project-content">
+
+    <h3>
+      {{ p().name }}
+    </h3>
+
+    <p class="description">
+      {{ p().description }}
+    </p>
+
+    <div class="tech-list">
+
+      @for (tech of p().tech; track tech) {
+
+        <span class="chip">
+          {{ tech }}
+        </span>
+
+      }
+
+    </div>
+
+    <a
+      [href]="p().repo"
+      target="_blank"
+      class="btn-primary repo-btn"
+    >
+      Ver repositorio →
+    </a>
+
+  </div>
+
+</article>

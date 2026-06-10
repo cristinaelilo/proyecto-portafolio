@@ -1,0 +1,28 @@
+<section class="programadoras-container">
+
+  <header class="header">
+    <h1>
+      Nuestras
+      <span class="gradient-text">
+        Programadoras
+      </span>
+    </h1>
+
+    <p>
+      Conoce al equipo detrás de C&D Studio.
+    </p>
+  </header>
+
+  <div class="cards">
+
+    @for (p of list(); track p.id) {
+
+      <app-programmer-card
+        [p]="p">
+      </app-programmer-card>
+
+    }
+
+  </div>
+
+</section>

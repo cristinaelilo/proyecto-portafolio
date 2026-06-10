@@ -1,0 +1,29 @@
+<section class="proyectos-container">
+
+  <header class="titulo">
+    <h1>
+      Nuestros
+      <span class="gradient-text">
+        proyectos
+      </span>
+    </h1>
+
+    <p>
+      Algunos trabajos y proyectos desarrollados durante nuestra formación
+      universitaria y práctica profesional.
+    </p>
+  </header>
+
+  <div class="proyectos-grid">
+
+    @for (p of list(); track p.id) {
+
+      <app-project-card
+        [p]="p">
+      </app-project-card>
+
+    }
+
+  </div>
+
+</section>

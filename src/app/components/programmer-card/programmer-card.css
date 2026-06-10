@@ -1,0 +1,18 @@
+:host {
+  display: flex;
+}
+
+article {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 420px;
+  width: 100%;
+}
+
+article p.text-muted {
+  flex: 1;
+}
+
+img { transition: all .3s ease; }
+article:hover img { transform: scale(1.05); }

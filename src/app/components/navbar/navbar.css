@@ -1,0 +1,20 @@
+:host {
+  display: block;
+}
+
+header {
+  backdrop-filter: blur(20px);
+}
+
+/* ⭐ ACTIVE PAGE */
+.active-link {
+  color: #ca3a74 !important;
+  background: rgba(255,255,255,0.06);
+  font-weight: 600;
+  border-radius: 999px;
+}
+
+/* hover suave más pro */
+a {
+  transition: all 0.2s ease;
+}

@@ -1,0 +1,55 @@
+:host {
+  display: block;
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: rgba(27, 26, 26, 0.7);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.social:hover {
+  color: #f838bb;
+}
+
+.social svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* tech */
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  font-size: 11px;
+  color: rgba(50, 49, 49, 0.8);
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.tech:hover {
+  background: rgba(56,189,248,0.15);
+  color: #f838bb;
+}
+
+.tech svg {
+  width: 14px;
+  height: 14px;
+  fill: currentColor;
+}

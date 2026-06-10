@@ -1,0 +1,53 @@
+<section class="min-h-[80vh] flex items-center justify-center px-4 py-12">
+  <div class="w-full max-w-md glass rounded-2xl sm:rounded-3xl p-6 sm:p-8">
+
+    <h1 class="text-2xl sm:text-3xl font-bold text-center">Crear cuenta</h1>
+    <p class="text-muted text-center text-sm mt-2">Solo para usuarios externos</p>
+
+    <form (ngSubmit)="submit()" class="mt-6 sm:mt-8 space-y-4">
+
+      <input
+        [(ngModel)]="name"
+        name="name"
+        placeholder="Nombre completo"
+        class="w-full px-4 py-3 rounded-xl bg-white/50 border border-black/10 outline-none text-sm"
+      />
+      <input
+        type="email"
+        [(ngModel)]="email"
+        name="email"
+        placeholder="Correo electrónico"
+        class="w-full px-4 py-3 rounded-xl bg-white/50 border border-black/10 outline-none text-sm"
+      />
+      <input
+        type="password"
+        [(ngModel)]="password"
+        name="password"
+        placeholder="Contraseña (mín. 6 caracteres)"
+        class="w-full px-4 py-3 rounded-xl bg-white/50 border border-black/10 outline-none text-sm"
+      />
+      <input
+        type="password"
+        [(ngModel)]="confirm"
+        name="confirm"
+        placeholder="Confirmar contraseña"
+        class="w-full px-4 py-3 rounded-xl bg-white/50 border border-black/10 outline-none text-sm"
+      />
+
+      @if (error()) {
+        <p class="text-red-500 text-sm text-center">{{ error() }}</p>
+      }
+
+      <button type="submit" class="btn-primary w-full" [disabled]="loading()">
+        {{ loading() ? 'Creando cuenta...' : 'Registrarse' }}
+      </button>
+
+    </form>
+
+    <p class="text-center text-sm text-muted mt-6">
+      ¿Ya tienes cuenta?
+      <a routerLink="/login" class="gradient-text font-semibold ml-1">Inicia sesión</a>
+    </p>
+
+  </div>
+</section>

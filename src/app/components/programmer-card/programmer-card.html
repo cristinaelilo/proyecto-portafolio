@@ -1,0 +1,42 @@
+<article
+  class="glass rounded-3xl p-6 hover:-translate-y-2 transition-all duration-300 group text-center"
+>
+
+  <img
+    [src]="p().photo"
+    [alt]="p().name"
+    class="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full object-cover mx-auto border-4 border-pink-200 shadow-xl"
+  >
+
+  <h3 class="font-bold text-xl sm:text-2xl mt-5">
+    {{ p().name }}
+  </h3>
+
+  <p class="gradient-text font-semibold mt-1">
+    {{ p().role }}
+  </p>
+
+  <p class="text-muted text-sm sm:text-base mt-4 line-clamp-4">
+    {{ p().bio }}
+  </p>
+
+  <div class="flex flex-wrap justify-center gap-2 mt-5">
+
+    @for (tech of p().tech.slice(0,4); track tech) {
+
+      <span class="chip">
+        {{ tech }}
+      </span>
+
+    }
+
+  </div>
+
+  <a
+    [routerLink]="['/programadoras', p().id]"
+    class="btn-primary mt-6 w-full"
+  >
+    Ver perfil
+  </a>
+
+</article>
