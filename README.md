@@ -305,7 +305,7 @@ src/
 
 ## URL de Despliegue
 
-- Aplicación desplegada: https://cd-studio-7bbcf.firebaseapp.com
+- Aplicación desplegada: https://cd-studio-7bbcf.web.app/
 - Strapi CMS: https://cloud.strapi.io/projects/strapi-backend-9ad9d38714/production/deployments
 - Repositorio Strapi: https://github.com/cristinaelilo/strapi-backend
 - Repositorio Angular: https://github.com/cristinaelilo/proyecto-portafolio
